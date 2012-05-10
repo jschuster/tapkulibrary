@@ -73,7 +73,9 @@
 #import "TKProgressCircleView.h"
 
 
-
+// Graph
+#import "TKGraphView.h"
+#import "TKGraphController.h"
 
 // Calendar
 #import "TKCalendarMonthViewController.h"

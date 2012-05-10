@@ -62,8 +62,34 @@
 	CGContextDrawPath(context, kCGPathFill);
 }
 
++ (void) drawLineInRect:(CGRect)rect colors:(CGFloat[])colors {
+  [UIView drawLineInRect:rect colors:colors width:1 cap:kCGLineCapButt];
+}
 
++ (void) drawLineInRect:(CGRect)rect red:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha{
+  CGFloat colors[4];
+  colors[0] = red;
+  colors[1] = green;
+  colors[2] = blue;
+  colors[3] = alpha;
+  [UIView drawLineInRect:rect colors:colors];
+}
 
++ (void) drawLineInRect:(CGRect)rect colors:(CGFloat[])colors width:(CGFloat)lineWidth cap:(CGLineCap)cap{
+  CGContextRef context = UIGraphicsGetCurrentContext();
+  CGContextSaveGState(context);
+  
+  CGContextSetRGBStrokeColor(context, colors[0], colors[1], colors[2], colors[3]);
+  CGContextSetLineCap(context,cap);
+  CGContextSetLineWidth(context, lineWidth);
+  
+  CGContextMoveToPoint(context, rect.origin.x, rect.origin.y);
+  CGContextAddLineToPoint(context,rect.origin.x+rect.size.width, rect.origin.y+rect.size.height);
+  CGContextStrokePath(context);
+  
+  
+  CGContextRestoreGState(context);
+}
 
 
 

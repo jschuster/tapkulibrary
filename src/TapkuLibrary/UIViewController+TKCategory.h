@@ -74,4 +74,8 @@
  */
 - (void) processJSONDataInBackground:(NSData *)data withCallbackSelector:(SEL)callback backgroundSelector:(SEL)backgroundProcessor errorSelector:(SEL)errroSelector readingOptions:(NSJSONReadingOptions)options;
 
+/** Indicate the visibility state of the controllers view
+ @return YES if the view is currently visible
+ */
+- (BOOL)isViewVisible;
 @end

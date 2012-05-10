@@ -126,6 +126,9 @@
 	}
 }
 
+- (BOOL)isViewVisible {
+  return self.isViewLoaded && self.view.window;
+}
 
 
 @end
